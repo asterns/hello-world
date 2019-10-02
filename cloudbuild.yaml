@@ -7,9 +7,18 @@ steps:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'POSTGRES_PASSWORD=mysecretpassword'
   - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=postgres'
+  - 'POSTGRES_DATABASE=votefwd'
   - 'POSTGRES_HOST=postgres'
-  - 'POSTGRES_DB=postgres'
+  - 'POSTGRES_DB=votefwd'
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'db:test']
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
+  - 'POSTGRES_PASSWORD=mysecretpassword'
+  - 'POSTGRES_USERNAME=postgres'
+  - 'POSTGRES_DATABASE=votefwd'
+  - 'POSTGRES_HOST=postgres'
+  - 'POSTGRES_DB=votefwd'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:migrate']
   env:
@@ -19,8 +28,6 @@ steps:
   - 'POSTGRES_DATABASE=votefwd'
   - 'POSTGRES_HOST=postgres'
   - 'POSTGRES_DB=votefwd'
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'db:test']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run','test']
 - name: "gcr.io/cloud-builders/gcloud"
