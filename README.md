@@ -36,3 +36,8 @@ See [Contributing][contributing].
 [tutorial]: https://cloud.google.com/appengine/docs/standard/nodejs/quickstart
 [readme]: ../../README.md
 [contributing]: https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/CONTRIBUTING.md
+[instructions]: https://cloud.google.com/cloud-build/docs/run-builds-on-github
+[cloud-build-settings]:https://console.cloud.google.com/cloud-build/settings
+## Instructions for Deployment:
+- Follow relevant [instructions][instructions] on github to connect cloudbuild to github for the repo
+- Set "App Engine" permissions to "Enabeld" on [google cloud platform settings][cloud-build-settings]
