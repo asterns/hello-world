@@ -41,3 +41,6 @@ See [Contributing][contributing].
 ## Instructions for Deployment:
 - Follow relevant [instructions][instructions] on github to connect cloudbuild to github for the repo
 - Set "App Engine" permissions to "Enabeld" on [google cloud platform settings][cloud-build-settings]
+
+- how to use cloudbuild for docker - https://github.com/Philmod/gcb-docker-compose/blob/master/cloudbuild.yaml
+  - https://github.com/GoogleCloudPlatform/cloud-build-local/issues/87

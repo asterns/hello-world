@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
-- name: gcr.io/cloud-builders/docker
-  args: ['run', '--name', 'votefwd', '-e', 'POSTTGRES_PASSWORD=secretpassword','-d','postgres','postgres']
+- name: 'docker/compose:1.15.0'
+  args: ['up', '-d']
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:test']
 - name: 'gcr.io/cloud-builders/npm'
