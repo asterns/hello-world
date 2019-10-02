@@ -4,6 +4,8 @@ steps:
 - name: gcr.io/cloud-builders/docker
   args: ['run', '--name', 'votefwd', '-e', 'POSTTGRES_PASSWORD=secretpassword','-d','postgres','postgres']
 - name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'db:test']
+- name: 'gcr.io/cloud-builders/npm'
   args: ['run','test']
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
