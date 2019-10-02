@@ -5,7 +5,7 @@ const config = {
   password: 'secretpassword',
   database: 'postgres',
   //port: '5432'
-  //host: 'http://localhost'
+  host: 'postgres'
 };
 const knexClient = knex({
   client: 'pg',
