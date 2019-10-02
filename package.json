@@ -15,6 +15,7 @@
   "scripts": {
     "start": "node app.js",
     "db:test": "node db.js",
+    "db:migrate": "knex migrate:latest",
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {

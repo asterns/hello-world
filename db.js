@@ -1,11 +1,10 @@
 const knex = require('knex');
 
 const config = {
-  user: 'postgres',
-  password: 'secretpassword',
-  database: 'postgres',
-  //port: '5432'
-  host: 'postgres'
+  user: process.env.POSTGRES_USERNAME,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DATABASE,
+  host: process.env.POSTGRES_HOST,
 };
 const knexClient = knex({
   client: 'pg',
