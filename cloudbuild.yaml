@@ -7,9 +7,9 @@ steps:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'POSTGRES_PASSWORD=mysecretpassword'
   - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=votefwd'
+  - 'POSTGRES_DATABASE=postgres'
   - 'POSTGRES_HOST=postgres'
-  - 'POSTGRES_DB=votefwd'
+  - 'POSTGRES_DB=postgres'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:migrate']
   env:

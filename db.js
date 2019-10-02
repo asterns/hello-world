@@ -14,8 +14,11 @@ const knexClient = knex({
     tableName: 'knex_migrations'
   }
 });
-knexClient.select()
+knexClient.raw('create database votefwd')
+.then(() =>{
+  knexClient.select()
   .table("pg_catalog.pg_tables")
   .then((result) => {
     console.log(result);
   });
+});
