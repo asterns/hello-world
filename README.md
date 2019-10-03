@@ -44,3 +44,7 @@ See [Contributing][contributing].
 
 - how to use cloudbuild for docker - https://github.com/Philmod/gcb-docker-compose/blob/master/cloudbuild.yaml
   - https://github.com/GoogleCloudPlatform/cloud-build-local/issues/87
+- grant Cloud Build Service account access to the stage project
+  - https://console.cloud.google.com/iam-admin/iam?project=[stage-project-id]
+  - click "+Add" a user - select service account from https://console.cloud.google.com/cloud-build/settings?[production-project-id]
+  - add role cloud build service account
