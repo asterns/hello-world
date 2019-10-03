@@ -4,30 +4,14 @@ steps:
 - name: 'docker/compose:1.15.0'
   args: ['up', '-d']
   env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'POSTGRES_PASSWORD=mysecretpassword'
-  - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=votefwd'
-  - 'POSTGRES_HOST=postgres'
-  - 'POSTGRES_DB=votefwd'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:test']
   env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'POSTGRES_PASSWORD=mysecretpassword'
-  - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=postgres'
-  - 'POSTGRES_HOST=postgres'
   - 'POSTGRES_DB=postgres'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:migrate']
   env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'POSTGRES_PASSWORD=mysecretpassword'
-  - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=votefwd'
-  - 'POSTGRES_HOST=postgres'
-  - 'POSTGRES_DB=votefwd'
+    - 'POSTGRES_DATABASE=votefwd'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run','test']
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -36,4 +20,28 @@ steps:
   - '-c'
   - |
     echo "This step only runs gcloud app deploy if this build was triggered by a push to master."
-    [[ "$BRANCH_NAME" == "master" ]] && gcloud app deploy
+    if [ "$BRANCH_NAME" == "master" ] 
+    then
+      gcloud app deploy && echo "finished gcloud deploy"
+    fi
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "This step only runs gcloud app deploy if this build was triggered by a push to stage."
+    if [ "$BRANCH_NAME" == "stage" ] 
+    then
+      gcloud app deploy && echo "finished gcloud deploy"
+    fi
+  env:
+    - 'PROJECT_ID=asterns-hello-world-app-2'
+
+options:
+  env:
+    - 'PROJECT_ID=$PROJECT_ID'
+    - 'POSTGRES_PASSWORD=mysecretpassword'
+    - 'POSTGRES_USERNAME=postgres'
+    - 'POSTGRES_DATABASE=postgres'
+    - 'POSTGRES_HOST=postgres'
+    - 'POSTGRES_DB=votefwd'
