@@ -15,10 +15,6 @@ const knexClient = knex({
   }
 });
 knexClient.raw('create database votefwd')
-.then(() =>{
-  knexClient.select()
-  .table("pg_catalog.pg_tables")
-  .then((result) => {
-    console.log(result);
-  });
+.then((result) =>{
+  console.log(result);
 });
