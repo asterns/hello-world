@@ -1,11 +1,3 @@
-env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'POSTGRES_PASSWORD=mysecretpassword'
-  - 'POSTGRES_USERNAME=postgres'
-  - 'POSTGRES_DATABASE=votefwd'
-  - 'POSTGRES_HOST=postgres'
-  - 'POSTGRES_DB=votefwd'
-
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
@@ -31,3 +23,11 @@ steps:
     then
       gcloud app deploy && echo "finished gcloud deploy"
     fi
+options:
+  env:
+    - 'PROJECT_ID=$PROJECT_ID'
+    - 'POSTGRES_PASSWORD=mysecretpassword'
+    - 'POSTGRES_USERNAME=postgres'
+    - 'POSTGRES_DATABASE=votefwd'
+    - 'POSTGRES_HOST=postgres'
+    - 'POSTGRES_DB=votefwd'
