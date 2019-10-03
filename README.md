@@ -38,6 +38,8 @@ See [Contributing][contributing].
 [contributing]: https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/CONTRIBUTING.md
 [instructions]: https://cloud.google.com/cloud-build/docs/run-builds-on-github
 [cloud-build-settings]:https://console.cloud.google.com/cloud-build/settings
+[secret-in-cloudbuild]:https://medium.com/google-cloud/managing-secrets-with-kms-and-google-cloudbuild-d3cc6b8a8f83
+
 ## Instructions for Deployment:
 - Follow relevant [instructions][instructions] on github to connect cloudbuild to github for the repo
 - Set "App Engine" permissions to "Enabeld" on [google cloud platform settings][cloud-build-settings]
@@ -49,3 +51,4 @@ See [Contributing][contributing].
   - click "+Add" a user - select service account from https://console.cloud.google.com/cloud-build/settings?[production-project-id]
   - add "App Engine Admin" and "Cloud Build Service Account" roles
   - set up keys - https://console.cloud.google.com/security/kms
+  - Follow instructions in [secret instructions][secret-in-cloudbuild] to reference secrets in cloudbuild.yml

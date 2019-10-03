@@ -8,7 +8,6 @@ steps:
   args: ['run', 'db:test']
   env:
   - 'POSTGRES_DB=postgres'
-  - 'POSTGRES_PASSWORD=mysecretpassword'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:migrate']
   env:
