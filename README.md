@@ -39,6 +39,7 @@ See [Contributing][contributing].
 [instructions]: https://cloud.google.com/cloud-build/docs/run-builds-on-github
 [cloud-build-settings]:https://console.cloud.google.com/cloud-build/settings
 [secret-in-cloudbuild]:https://medium.com/google-cloud/managing-secrets-with-kms-and-google-cloudbuild-d3cc6b8a8f83
+[secrets-iam]:https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials
 
 ## Instructions for Deployment:
 - Follow relevant [instructions][instructions] on github to connect cloudbuild to github for the repo
@@ -52,3 +53,4 @@ See [Contributing][contributing].
   - add "App Engine Admin" and "Cloud Build Service Account" roles
   - set up keys - https://console.cloud.google.com/security/kms
   - Follow instructions in [secret instructions][secret-in-cloudbuild] to reference secrets in cloudbuild.yml
+  - grant the service account "Cloud KMS Crypto Key Decrypter" permission per [instructions][secrets-iam]
