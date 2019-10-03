@@ -36,4 +36,7 @@ steps:
   - '-c'
   - |
     echo "This step only runs gcloud app deploy if this build was triggered by a push to master."
-    [[ "$BRANCH_NAME" == "master" ]] && gcloud app deploy
+    if [ "$BRANCH_NAME" == "master" ] 
+    then
+      gcloud app deploy
+    fi
