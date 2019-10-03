@@ -8,6 +8,7 @@ steps:
   args: ['run', 'db:test']
   env:
   - 'POSTGRES_DB=postgres'
+  - 'POSTGRES_PASSWORD=mysecretpassword'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'db:migrate']
   env:
@@ -40,8 +41,11 @@ steps:
 options:
   env:
     - 'PROJECT_ID=$PROJECT_ID'
-    - 'POSTGRES_PASSWORD=mysecretpassword'
     - 'POSTGRES_USERNAME=postgres'
     - 'POSTGRES_DATABASE=postgres'
     - 'POSTGRES_HOST=postgres'
     - 'POSTGRES_DB=votefwd'
+secrets:
+- kmsKeyName: projects/asterns-hello-world-app/locations/us-east1/keyRings/asterns-hello-world-key-ring/cryptoKeys/postgres-pipeline-password/cryptoKeyVersions/1
+  secretEnv:
+    POSTGRES_PASSWORD: CiQAuwnn4XzlEtLixdPG2bFGx87F7/4gn9/fdGKbHPWrfa7DHOkSOgCoDUGyxnfrE0obpqqX3B2axdPjSOWWmloHfpSPDvFhgVihZ8s0TZyOmo5yPadGqO9BmRtCZrjCFYw=
