@@ -32,7 +32,7 @@ steps:
     echo "This step only runs gcloud app deploy if this build was triggered by a push to stage."
     if [ "$BRANCH_NAME" == "stage" ] 
     then
-      gcloud app deploy && echo "finished gcloud deploy"
+      gcloud app deploy --project=$PROJECT_ID && echo "finished gcloud deploy"
     fi
   env:
     - 'PROJECT_ID=asterns-hello-world-app-2'
