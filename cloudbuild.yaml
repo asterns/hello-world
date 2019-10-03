@@ -47,6 +47,6 @@ options:
   secretEnv:
     - 'POSTGRES_PASSWORD'  
 secrets:
-- kmsKeyName: projects/asterns-hello-world-app/locations/us-east1/keyRings/asterns-hello-world-key-ring/cryptoKeys/postgres-pipeline-password/cryptoKeyVersions/1
+- kmsKeyName: projects/asterns-hello-world-app/locations/us-east1/keyRings/asterns-hello-world-key-ring/cryptoKeys/postgres-pipeline-password/cryptoKeyVersions
   secretEnv:
     POSTGRES_PASSWORD: CiQAuwnn4XzlEtLixdPG2bFGx87F7/4gn9/fdGKbHPWrfa7DHOkSOgCoDUGyxnfrE0obpqqX3B2axdPjSOWWmloHfpSPDvFhgVihZ8s0TZyOmo5yPadGqO9BmRtCZrjCFYw=
