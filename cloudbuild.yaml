@@ -24,6 +24,19 @@ steps:
     then
       gcloud app deploy && echo "finished gcloud deploy"
     fi
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "This step only runs gcloud app deploy if this build was triggered by a push to stage."
+    if [ "$BRANCH_NAME" == "stage" ] 
+    then
+      gcloud app deploy && echo "finished gcloud deploy"
+    fi
+  env:
+    - 'PROJECT_ID=asterns-hello-world-app-2'
+
 options:
   env:
     - 'PROJECT_ID=$PROJECT_ID'
