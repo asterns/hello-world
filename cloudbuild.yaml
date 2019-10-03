@@ -30,5 +30,10 @@ steps:
   - 'POSTGRES_DB=votefwd'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run','test']
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "This step only runs gcloud app deploy if this build was triggered by a push to master."
+    [[ "$BRANCH_NAME" == "master" ]] && gcloud app deploy
