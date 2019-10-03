@@ -45,6 +45,8 @@ options:
     - 'POSTGRES_DATABASE=postgres'
     - 'POSTGRES_HOST=postgres'
     - 'POSTGRES_DB=votefwd'
+  secretEnv:
+    - 'POSTGRES_PASSWORD'  
 secrets:
 - kmsKeyName: projects/asterns-hello-world-app/locations/us-east1/keyRings/asterns-hello-world-key-ring/cryptoKeys/postgres-pipeline-password/cryptoKeyVersions/1
   secretEnv:
